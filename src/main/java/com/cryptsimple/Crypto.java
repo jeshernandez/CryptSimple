@@ -1,6 +1,7 @@
 package com.cryptsimple;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -12,8 +13,7 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 
-public class Crypto {
-    final static Logger logger = Logger.getLogger(Crypto.class);
+public class Crypto extends CryptSimple {
     private static FileInputStream inputStream = null;
     private static FileOutputStream outputStream = null;
     private static int myCipher;
@@ -21,6 +21,7 @@ public class Crypto {
     private static File myInputFile;
     private static File myOutputFile;
     private static boolean cryptStatus;
+    static Logger logger = LoggerFactory.getLogger(Crypto.class);
 
     public static void fileProcessor(int cipherMode, String key, File inputFile, File outputFile) {
         cryptStatus = false;
@@ -85,7 +86,9 @@ public class Crypto {
 
     private static void deleteFile() {
         File deleteFileName = getMyInputFile();
-        if(deleteFileName.delete()) logger.debug("Input File Deleted");
+        if(deleteFileName.delete()) {
+            logger.debug("Input File Deleted");
+        }
     }
 
     public static int getMyCipher() {
@@ -127,4 +130,4 @@ public class Crypto {
     public static void setMyOutputFile(File myOutputFile) {
         Crypto.myOutputFile = myOutputFile;
     }
-} // End of Crypto
+}
