@@ -1,4 +1,4 @@
-module com.example.demo {
+module net.digitalhand.cryptsimple {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -6,6 +6,6 @@ module com.example.demo {
     requires org.kordamp.bootstrapfx.core;
     requires slf4j.api;
 
-    opens com.cryptsimple to javafx.fxml;
-    exports com.cryptsimple;
+    opens net.digitalhand.cryptsimple to javafx.fxml;
+    exports net.digitalhand.cryptsimple;
 }

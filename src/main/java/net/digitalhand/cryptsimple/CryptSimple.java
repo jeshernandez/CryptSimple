@@ -1,4 +1,4 @@
-package com.cryptsimple;
+package net.digitalhand.cryptsimple;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
